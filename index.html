@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Inayati | Product demonstration</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; padding: clamp(1.25rem, 4vw, 3rem); background: #f6f8fb; color: #172a43; font: 1rem/1.55 system-ui, sans-serif; }
+  main { max-width: 62rem; margin: auto; display: grid; grid-template-columns: minmax(0, 23rem) minmax(0, 20rem); align-items: center; gap: clamp(1.25rem, 5vw, 4rem); justify-content: center; }
+  h1 { margin: 0 0 .4rem; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.1; }
+  p { margin: 1rem 0; }
+  a { color: #154db0; text-underline-offset: .15em; }
+  video { display: block; width: min(100%, 20rem); border-radius: .8rem; background: #0e1e38; box-shadow: 0 .5rem 2rem #172a4320; aspect-ratio: 9 / 16; }
+  @media (max-width: 640px) {
+    main { grid-template-columns: 1fr; max-width: 27rem; gap: .75rem; }
+    video { margin-inline: auto; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <div>
+    <h1>Inayati <span lang="ar" dir="rtl">عنايتي</span></h1>
+    <p>46-second product demonstration</p>
+    <p>Follow a fictional patient from screening to a care timeline, then see the same care screen in Arabic.</p>
+    <p><a href="https://github.com/bakkey/inayati-review/releases/tag/v0.5.0-synthetic">Android APK and quick start</a></p>
+  </div>
+  <video controls playsinline preload="metadata" poster="poster.jpg" aria-label="Inayati product demonstration">
+    <source src="Inayati-Walkthrough.mp4" type="video/mp4">
+    <a href="Inayati-Walkthrough.mp4">Download the demonstration video</a>
+  </video>
+</main>
+</body>
+</html>
