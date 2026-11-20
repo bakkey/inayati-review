@@ -1,0 +1,15 @@
+name: Verify anonymous judge download
+on: push
+permissions: {}
+jobs:
+  download:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download and verify the public release without credentials
+        run: |
+          set -eu
+          base=https://github.com/bakkey/inayati-review/releases/download/v0.5.0-synthetic
+          curl --disable --silent --show-error --fail --location --retry 3 "$base/Inayati-0.5.0-synthetic.apk" --output Inayati-0.5.0-synthetic.apk
+          curl --disable --silent --show-error --fail --location --retry 3 "$base/SHA256SUMS.txt" --output SHA256SUMS.txt
+          printf '%s  %s\n' 13ac706b0df9c8598b08704c92909d94594d451543c1095dbd52698aa674eaf8 Inayati-0.5.0-synthetic.apk | sha256sum --check
+          sha256sum --check SHA256SUMS.txt
