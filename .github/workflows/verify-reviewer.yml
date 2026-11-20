@@ -13,3 +13,8 @@ jobs:
           curl --disable --silent --show-error --fail --location --retry 3 "$base/SHA256SUMS.txt" --output SHA256SUMS.txt
           printf '%s  %s\n' 13ac706b0df9c8598b08704c92909d94594d451543c1095dbd52698aa674eaf8 Inayati-0.5.0-synthetic.apk | sha256sum --check
           sha256sum --check SHA256SUMS.txt
+          curl --disable --silent --show-error --fail --location "$base/Inayati-Quick-Start.md" --output Inayati-Quick-Start.md
+          curl --disable --silent --show-error --fail --location "$base/Inayati-Walkthrough.mp4" --output Inayati-Walkthrough.mp4
+          printf '%s  %s\n' 7dd33cb8296cbe7cbc701974c79a154cf7aa76e0fe7765d9437d4c69ba54fde0 Inayati-Quick-Start.md | sha256sum --check
+          printf '%s  %s\n' 262efcc7c57420bb1eb4c0aff6e61778b1e0484e774fd518d17b983cf935b913 Inayati-Walkthrough.mp4 | sha256sum --check
+          ffmpeg -hide_banner -loglevel error -xerror -i Inayati-Walkthrough.mp4 -map 0:v:0 -f null -
