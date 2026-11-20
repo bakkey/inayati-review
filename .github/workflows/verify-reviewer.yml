@@ -17,4 +17,6 @@ jobs:
           curl --disable --silent --show-error --fail --location "$base/Inayati-Walkthrough.mp4" --output Inayati-Walkthrough.mp4
           printf '%s  %s\n' 7dd33cb8296cbe7cbc701974c79a154cf7aa76e0fe7765d9437d4c69ba54fde0 Inayati-Quick-Start.md | sha256sum --check
           printf '%s  %s\n' 262efcc7c57420bb1eb4c0aff6e61778b1e0484e774fd518d17b983cf935b913 Inayati-Walkthrough.mp4 | sha256sum --check
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends ffmpeg >/dev/null
           ffmpeg -hide_banner -loglevel error -xerror -i Inayati-Walkthrough.mp4 -map 0:v:0 -f null -
